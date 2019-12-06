@@ -1,0 +1,17 @@
+.content {
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    font-size: 1.2em;
+    background-color: white;
+}
+
+.action {
+    border-color: red;
+    color: blue;
+}
+
+.reset {
+    border-color: black;
+    color: chocolate;
+}

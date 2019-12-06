@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/html.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="sample">
+        <p class="target">click me</p>
+
+
+        <script>
+            $(function() {
+                $(".target").mouseover(function() {
+                    $(".target").css("width", "90%");
+                });
+
+                $(".target").mouseout(function() {
+                    $(".target").css("width", "30%")
+                });
+
+                $(".target").mousedown(function() {
+                    $(".target").css("backgroundColor", "hotpink");
+                    $(".target").css("color", "yellow");
+                });
+
+                $(".target").mouseup(function() {
+                    $(".target").css("backgroundColor", "aqua");
+                    $(".target").css("color", "black");
+                });
+
+                $(".target").click(function() {
+                    $(".target").css("border", "1px solid black");
+                });
+
+                $(".target").css("transitionDuration", "1.0s");
+
+
+
+                $(".target").css("width", "30%");
+
+
+
+
+
+            });
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        <h3>Stories</h3>
+        <ul>
+            <li>
+                <a href="#tab1">Born</a>
+            </li>
+            <li><a href="#tab2">Soccer</a></li>
+            <li><a href="#tab3">Goal</a></li>
+        </ul>
+    </nav>
+    <article>
+        <section id="tab1">私は、東京都北区の赤羽という場所で生まれました。小さいときは体が弱くほとんど毎日風邪になっていて親にたくさん迷惑を掛けました。そんな私も今21歳になりました。これから社会に出ていくために必要なスキルを身に着けて、もっとレベルアップをしていきたいなと思います。</section>
+        <section id="tab2">私は、、、</section>
+        <section id="tab3">私は、、、</section>
+    </article>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script>
+        const $nav = $("nav");
+        const $ul = $("ul");
+        $(function() {
+            let href;
+            $("li").click(function(event) {
+                event.preventDefault();
+                let $this=$(this);
+             href = $this.find('a').attr('href');
+            //  if ($this.hasClass('active')){
+            //    return;
+            // }  
+            // $("li").removeClass('active');
+            // $this.addClass('active');
+
+             $("section").stop(true).fadeOut()
+
+             setTimeout(function(){
+                $(href).stop(true).fadeIn()
+            },400)
+
+
+             
+            })
+
+            
+           
+
+             
+           
+          
+
+        })
+    </script>
+</body>
+
+</html>

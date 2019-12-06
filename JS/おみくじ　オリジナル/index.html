@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>おみくじ</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>今日の占い</h1>
+        <img src="./omikuji.png" alt="おみくじ">
+        <p id="btn">ひく！！</p>
+        <div id="output">
+            <div class="kekka">
+                <p id="omikekka"></p>
+                <p id="color"></p>
+                <p id="spot"></p>
+                <p class="orei">ありがとな！　また来いよ！</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="overlay"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script>
+        $(function ()
+        {
+            var btn = document.getElementById("btn");
+            var output = document.getElementById("output");
+            var overlay = document.getElementById("overlay");
+
+
+            $("#btn").on({
+                'mouseover': function ()
+                {
+                    $(this).stop(true).animate({
+                        borderWidth: "10px",
+                        backgroundColor: "white",
+                        padding: "10px 50px"
+                    }, 300)
+                },
+                'mouseout': function ()
+                {
+                    $(this).stop(true).animate({
+                        borderWidth: "0px",
+                        backgroundColor: "#f0f",
+                        padding: "20px 60px"
+                    }, 300);
+                }
+
+
+            });
+
+            btn.addEventListener("click", function ()
+            {
+                result();
+                output.classList.add("fadein");
+                overlay.classList.add("fadein");
+            });
+
+            overlay.addEventListener("click", function ()
+            {
+                output.classList.remove("fadein");
+                overlay.classList.remove("fadein");
+            });
+
+            function result()
+            {
+                var index = Math.floor(Math.random() * 111);
+
+
+                if (0 <= index && index <= 9) {
+                    omikekka.innerHTML = '大吉'
+                } else if (10 <= index && index <= 29) {
+                    omikekka.innerHTML = '中吉'
+                } else if (30 <= index && index <= 49) {
+                    omikekka.innerHTML = '小吉'
+                } else if (50 <= index && index <= 69) {
+                    omikekka.innerHTML = '吉'
+                } else if (70 <= index && index <= 89) {
+                    omikekka.innerHTML = '末吉'
+                } else if (90 <= index && index <= 109) {
+                    omikekka.innerHTML = '凶'
+                } else if (110 <= index) {
+                    omikekka.innerHTML = '大凶'
+                };
+
+            };
+
+            //ラッキーからー//
+            var color = document.getElementById('color');
+            var colornum = new Array('ピンク', 'あか', 'あおぞら', '白色', '黄色', '紫色');
+
+            var num = Math.floor(Math.random() * colornum.length);
+
+            console.log(num);
+            color.innerHTML = 'ラッキーカラー:' + colornum[num];
+
+            //ラッキースポット//
+            var spot = document.getElementById("spot");
+            var spotnum = new Array('思い出の場所', '遊園地', '動物園', '焼肉屋さん', '水族館');
+
+            var num = Math.floor(Math.random() * spotnum.length);
+
+            console.log(num);
+
+            spot.innerHTML = 'ラッキースポット:' + spotnum[num];
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>

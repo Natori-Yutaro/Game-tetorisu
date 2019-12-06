@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>電卓</title>
+</head>
+
+<body>
+    <form name="myForm">
+        <table align="center" border="1" bgcolor="#BDB76B">
+            <tr>
+                <td align="center" colspan="4" bgcolor="#d2691e">
+                    <font color="#FFFFFF"><strong>電卓</strong></font>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3"><input type="text" size="12" name="myLine" value="0"></td>
+                <td align="center"><input id="bottun3" type="button" value="C" onClick="myC()"></td>
+            </tr>
+            <tr>
+                <td align="center"><input id="bottun" type="button" value="7" onClick="myValue(7)"> </td>
+                <td align="center"><input id="bottun" type="button" value="8" onClick="myValue(8)"></td>
+                <td align="center"><input id="bottun" type="button" value="9" onClick="myValue(9)"></td>
+                <td align="center"><input id="bottun1" type="button" value="%" onClick="myCalculate('/')"></td>
+            </tr>
+            <tr>
+                <td align="center"><input id="bottun" type="button" value="4" onClick="myValue(4)"> </td>
+                <td align="center"><input id="bottun" type="button" value="5" onClick="myValue(5)"></td>
+                <td align="center"><input id="bottun" type="button" value="6" onClick="myValue(6)"></td>
+                <td align="center"><input id="bottun1" type="button" value="×" onClick="myCalculate('*')"></td>
+            </tr>
+            <tr>
+                <td align="center"><input id="bottun" type="button" value="1" onClick="myValue(1)"> </td>
+                <td align="center"><input id="bottun" type="button" value="2" onClick="myValue(2)"></td>
+                <td align="center"><input id="bottun" type="button" value="3" onClick="myValue(3)"></td>
+                <td align="center"><input id="bottun1" type="button" value="-" onClick="myCalculate('-')"></td>
+            </tr>
+            <tr>
+                <td align="center"><input id="bottun" type="button" value="0" onClick="myValue(0)"> </td>
+                <td align="center"><input id="bottun" type="button" value="." onClick="myValue('.')"></td>
+                <td align="center"><input id="bottun1" type="button" value="+" onClick="myCalculate('+')"></td>
+                <td align="center"><input id="bottun1" type="button" value="=" onClick="myCalculate('=')"></td>
+            </tr>
+        </table>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+
+    <script>
+        function myValue(myData) //0~9小数点ボタンを押した時の関数
+        {
+            myFlg = 0;　    //一回前に入力したものは数値
+            myInput += myData; //現在入力している値に追加
+            document.myForm.myLine.value = myInput;　//現在入力している値表示
+        };
+
+            myTotal = 0; //現在の合計値
+            myInput = "";//現在入力している値
+            myCalc = "+";//合計と入力値の演算値
+            myFlg = 1;//一回前に入力したもの　０数字　１演算子
+
+
+
+
+            function myCalculate(myData)　//演算ボタンを押した時の関数
+            {
+                if (myFlg == 0) {　//一回前に入力したものは数値か？？
+                    myFlg = 1; //一回前に入力した物は演算子
+                    myWork = myTotal + myCalc + myInput;//一連の計算式を作る
+                    myTotal = eval(myWork);//計算式を計算させる
+                    myInput = "";//現在入力している値をクリア
+                    document.myForm.myLine.value = myTotal;//合計を表示
+                };
+                if (myData == "=") {　　//演算ボタンは＝か？
+                    myTotal = 0;　//合計をクリア
+                    myCalc = "+";//演算子を＋とする
+                } else {//演算ボタンは＝以外である
+                    myCalc = myData;//演算子を退避させておく
+                };
+            };
+
+            function myC()　　
+            {
+                //クリアボタンCを押した
+                myTotal = 0;　　　//合計クリア
+                myCalc = "+";　　//演算子クリア
+                myInput = "";　　//現在入力している値をクリア
+                document.myForm.myLine.value = myTotal;　　//つまり、0を表示
+            }
+    </script>
+</body>
+
+</html>

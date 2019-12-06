@@ -1,0 +1,82 @@
+#wrapper{
+    text-align: center;
+}
+#btn{
+ 
+    background-color:#f0f;
+    padding: 20px 60px;
+    cursor: pointer;
+    border: 0px solid #f0f;
+    box-sizing: border-box;
+    text-decoration: none;
+    width: 200px;
+    height: 60px;
+    top: 70%;
+    left: 40%;
+    position: absolute;
+
+}
+
+#overlay{
+background: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+
+    
+}
+#output{
+ background: #fff;
+  border-radius: 10px;
+  color: #333;
+  height: 50vh;
+  line-height: 50vh;
+  overflow: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 50%;
+  z-index: 1000;}
+
+
+#output,
+#overlay{
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+#overlay.fadein{
+    visibility: visible;
+    opacity: 1.0;
+}
+
+#output.fadein{
+    visibility: visible;
+    opacity: 1;
+}
+
+.orei{
+    font-size: 0.7em;
+    height: 50px;
+}
+
+#omikekka{
+    height: 5px;
+    font-size: 30px;
+    margin: 25px;
+}
+
+#color{
+    height: 15px;
+}
+
+#spot{
+    height: 30px;
+}

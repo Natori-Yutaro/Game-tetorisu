@@ -1,0 +1,130 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="./css/style.css">
+<title>portfolio</title>
+</head>
+
+<body>
+    <nav>
+        <h1><a href="#">Portfolio</a></h1>
+        <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Self PR</a></li>
+            <li><a href="#">Vision</a></li>
+        </ul>
+    </nav>
+    <header>
+        <div class="header">
+            <p><b>人生に失敗がないと、人生に失敗する。</b></p>
+            <h1>名執祐太郎 1stPortfolio</h1>
+        </div>
+    </header>
+    <main>
+        <div class="content1">
+            <h2 class="heading">P<span class="under">rofil</span>e</h2>
+            <h4>自己紹介</h4>
+            <div class="content1-2">
+                <img src="IMG_2097.JPG" alt="自分の写真">
+
+                <table>
+                    <tr>
+                        <th>Name.</th>
+                        <td>名執祐太郎</td>
+                    </tr>
+                    <tr>
+                        <th>Age.</th>
+                        <td>21歳</td>
+                    </tr>
+                    <tr>
+                        <th>Career.</th>
+                        <td>豊島高校卒業</td>
+
+
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td>東京都市大学在学</td>
+                    </tr>
+
+                </table>
+
+
+            </div>
+        </div>
+
+        <div class="content2">
+            <h2 class="heading">S<span class="under">elf P</span>R</h2>
+            <p>自己PR</p>
+            <div class="PR">
+                <div class="item">
+                    <h3>好きなこと</h3>
+                    <p>私はサッカーが好きで、大学在学中の今でもサッカーをやっています。サッカーはいろんな人と知り会うことができ、自分の人脈を大きく広げることができ、とても楽しいです。
+                        それと、いまはプログラミングが好きで学んでいます。
+                    </p>
+                </div>
+
+                <div class="item">
+                    <h3>得意なこと</h3>
+                    <p>私が得意なことは、数学です。私は、中学校の時に数学の先生が担任でした。そのため数学がとても好きになり、結構勉強しました。それのおかげか、大学の講義内で出てくる数学には基本困りませんでした。
+                        時には、大学の友人に数学を教えたりすることもあり、結構役に立っています。
+                    </p>
+                </div>
+
+                <div class="item">
+                    <h3>今までの経験</h3>
+                    <p>私は3歳の時からサッカーをやっています。その中で、礼儀やマナー庭厳しくされてきました。そのおかげか、高校の入試の時や、バイトの面接とかで落とされたことはないです。
+                        この習慣は、大人になってもずっと続けていきたいと思います。
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="content3">
+            <h2 class="heading">V<span class="under">isio</span>n</h2>
+            <p>目標</p>
+
+            <h3>クリエイティブ性を取り入れた人材になる</h3>
+            <p>私の人生において、クリエイティブな仕事に触れる機会はとても多かったです。
+                <br /> しかし、自分自身のクリエイティブ性は皆無でした。
+                <br /> 段々と自分自身でも何かを生み出していきたいと思いが強まり、
+                <br /> 現在ウェブ関連のプログラミングを学習しております。
+            </p>
+
+            <p>将来的にはフルスタックエンジニアを目指し、<br /> セールスとプログラミングの領域で、
+                <br /> イノベーションを起こしたいと考えております。
+            </p>
+
+            <h4 class="next">NEXT COMINGSOON</p>
+
+
+        </div>
+    </main>
+    <footer>
+        <a href="#top">TOP</a>
+
+        <p>creaded by Natori</p>
+    </footer>
+
+    <script>
+        $(function ()
+        {
+            $("#toggle").click(function ()
+            {
+                $("#menu").slideToggle();
+                return false;
+            });
+
+            $(window).resize(function ()
+            {
+                var win = $(window).width();
+                var p = 639;
+                if (win > p) {
+                    $("#menu").show();
+                }
+            });
+        });
+    </script>
+</body>

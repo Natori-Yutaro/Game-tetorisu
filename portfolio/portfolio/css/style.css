@@ -1,0 +1,265 @@
+body {
+    padding: 0px;
+    margin: 0px;
+}
+
+nav {
+    color: white;
+    background-color: #007BC7;
+    width: 100%;
+    height: 80px;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 100;
+
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav h1 {
+    line-height: 80px;
+    float: left;
+    margin: 0;
+    padding-left: 20px;
+}
+
+nav ul {
+    list-style: none;
+    float: right;
+    display: flex;
+    line-height: 80px;
+    margin: 0;
+    justify-content: space-around;
+}
+
+nav li {
+    padding: 0px 30px 0px 30px;
+}
+
+header {
+    width: 100%;
+    height: 500px;
+}
+
+.header {
+    background-image: url(../flower25[1].jpg);
+    width: 100%;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header p {
+    margin: 0;
+    font-size: 60px;
+    text-align: center;
+    padding-top: 200px;
+}
+
+header h1 {
+    text-align: center;
+}
+
+
+
+.content1 {
+    width: 100%;
+    height: 300px;
+}
+
+h2:first-letter {
+    color: #007BC7;
+}
+
+.content1 h2.heading {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.under {
+    border-bottom: 1px solid #007BC7;
+}
+
+.content1 h4 {
+    text-align: center;
+    margin: 10px 0px 10px 0px;
+}
+
+img {
+    width: 250px;
+    height: auto;
+}
+
+.content1-2 {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    padding-left: 20px;
+}
+
+.content2 {
+    width: 100%;
+    height: 500px;
+    background-image: url(../beautiful-mood-lantern-wallpaper-43504-44561-hd-wallpapers[1].jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.PR {
+    display: flex;
+    justify-content: space-around;
+}
+
+.item {
+    height: 300px;
+    width: 240px;
+    background-color: rgba(100, 100, 100, 0.6);
+    border: 1px solid white;
+}
+
+.content2 h2 {
+    text-align: center;
+    margin-bottom: 5px;
+    padding-top: 50px;
+}
+
+.content2 p {
+    text-align: center;
+    color: whitesmoke;
+}
+
+.item h3 {
+    text-align: center;
+}
+
+.content3 {
+    width: 100%;
+    height: 700px;
+    text-align: center;
+    position: relative;
+    /*nextcomingsoonをabsoluteで移動*/
+}
+
+.content3 h3 {
+    color: #007BC7;
+}
+
+.content3 p {
+    padding: 10px;
+}
+
+.next {
+    font-size: 50px;
+    color: #007BC7;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: -86px;
+}
+
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: teal;
+    text-align: center;
+    overflow: hidden;
+}
+
+footer a {
+    display: block;
+    width: 150px;
+    margin: auto;
+    border: 5px solid white;
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+
+
+@media screen and (max-width:639px) {
+/*スマホ用のcssを記述*/
+nav h1{
+    font-size: 17px;
+} 
+
+nav li{
+    font-size: 11px;
+}
+header p {
+    font-size: 30px;
+}
+
+header h1{
+    font-size: 18px;
+}
+
+main{
+    height: 2000px;
+}
+
+.content1{
+    height: 360px;
+}
+
+.content1-2{
+ display: block;
+}
+
+img{
+    position: relative;
+    padding-left: 60px;
+}
+
+table{
+    padding-top: 10px;
+    padding-left: 85px;
+    text-align: center;
+
+}
+
+.content2{
+    height: 1100px;
+}
+
+.PR{
+    display: block;
+   padding-left: 65px;
+
+}
+
+.item{
+    margin-bottom: 10px;
+}
+
+.content3 p{
+    padding:0;
+    font-size: 15px;
+}
+
+.next{
+    font-size: 30px;
+    bottom: 200px;
+}
+
+.next p{
+}
+}
+   
+@media only screen and (min-width:640px) and (max-width:1023px) {
+/*tablet用のcssを記述*/
+}
+  
+@media screen and (min-width:1024px) {
+/*pc用のcssを記述*/
+}

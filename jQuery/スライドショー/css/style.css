@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    display: block;
+}
+
+ul,
+li {
+    text-decoration: none;
+    -webkit-padding-start: 0;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.container {
+    height: 30vw;
+    min-width: 100%;
+    overflow: hidden;
+    position: absolute;
+}
+
+.slideshow-slides {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.slideshow-slides .slide {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+
+.slideshow-slides .slide img {
+    position: absolute;
+}
+
+.slideshow-nav a,
+.slideshow-indicator a {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.slideshow-nav a {
+    position: absolute;
+    top: 42%;
+    color: white;
+    font-size: 2em;
+}
+
+.slideshow-nav a.prev {
+    left: 50px;
+}
+
+.slideshow-nav a.next {
+    right: 50px;
+}
+
+.slideshow-nav a.disabled {
+    display: none;
+}
+
+.slideshow-indicator {
+    bottom: 30px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+}
+
+.slideshow-indicator a {
+    display: inline-block;
+    width: 16px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: 1px solid #fff;
+    color: black;
+}
+
+.slideshow-indicator a.active {
+    cursor: default;
+    background-color: #ccc;
+}
+
+.slideshow-indicator a:before {
+    margin-left: -110px;
+}
+
+.slideshow-indicator a.active:before {
+    margin-left: -130px;
+}
+
+.sticky {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    background-color: black;
+    color: aliceblue;
+}
+
+nav {
+    background-color: antiquewhite;
+    position: sticky;
+    position: -webkit-sticky;
+    width: 100%;
+    height: 60px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h3 {
+    float: left;
+    margin-left: 5px;
+}
+
+li {
+    list-style: none;
+    float: right;
+    padding: 10px;
+    margin-top: 10px;
+}

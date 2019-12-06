@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <title>Javascript</title>
+</head>
+
+<body>
+    <p class="week"></p>
+
+    <script>
+        const date1 = new Date();
+        console.log(date1);
+
+        // const date2 = new Date("2000 / 5 / 23   14: 40: 00:")
+        const date2 = new Date(2000, 4, 23, 14, 40, 0);
+        const date3 = new Date(959060400000);
+        console.log(date3.getFullYear());
+        console.log(date2.getTime());
+
+        const date4 = new Date(1143945473540);
+        console.log(date4.toLocaleString());
+
+        const date5 = new Date("2019/9/23 19:55:00");
+        console.log(date5.toUTCString());
+
+        const profile = {
+            name: "Mike",
+            age: "28",
+            countries: "Japan"
+        };
+        const addProfile = {
+            food: "sushi"
+        };
+
+        console.log(profile.toString());
+        console.log(profile.valueOf());
+        console.log(Object.assign(profile, addProfile));
+
+        const getRectangle = (x, y) =>
+        {
+            return x * y;
+        };
+
+        console.log(getRectangle(120, 45));
+
+        var WeekChars = ["日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日", "土曜日"];
+
+
+        function getDayOrigin(year)
+        {
+            var date = new Date(year, 12, 31) //引数year年の12月31日をとりだして
+            console.log(WeekChars[date.getDay()])
+        }
+
+        getDayOrigin(1999)
+
+        function date(month)
+        {
+            var date = new Date();
+            console.log(date);
+            if (month == 4 || month == 6 || month == 9 || month == 11) {
+                console.log("この月は30日で終わります");
+            } else if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) {
+                console.log("この月は31日で終わります");
+            } else if (month == 2) {
+                console.log("この月は28日で終わります");
+            } else {
+                console.log("こんな月はない");
+            }
+        }
+
+        console.log(date());
+
+        const big = (x, y) =>
+        {
+            return x - y
+        };
+
+        console.log("今月はあと" + big(30, 26) + "日です");
+
+
+        class Countries
+        {
+            constructor(country, city)
+            {
+                this.country = country;
+                this.city = city;
+            }
+
+            get country()
+            {
+                console.log("countryのgetが呼び出された");
+                return "国は" + this._country + ",";
+            }
+
+            set country(value)
+            {
+                console.log("countryのsetが呼び出された");
+                this._country = value;
+            }
+
+            get city()
+            {
+                console.log("cityのgetが呼び出された");
+                return "都市は" + this._city;
+            }
+
+            set city(value)
+            {
+                console.log("cityのsetが呼び出された");
+                this._city = value;
+            }
+
+            getCity()
+            {
+                return this.city;
+            }
+
+            getCountry()
+            {
+                return this.country + this.getCity();
+            }
+        }
+
+        const countries = new Countries("Japan", "Tokuo");
+
+        console.log(countries.getCountry());
+
+        class Regions extends Countries
+        {
+            constructor(region, country, city)
+            {
+                super(country, city);
+                this.region = region;
+            }
+
+            getRegion()
+            {
+                return "地域は" + this.region + ",";
+            }
+
+            getCountry()
+            {
+                return this.getRegion() + super.getCountry();
+            }
+
+        }
+
+        console.log(new Regions("Asia", "Japan", "Tokyo").getCountry());
+
+        class Weather extends Countries
+        {
+            constructor(country, city, weather)
+            {
+                super(country, city);
+                this.weather = weather;
+            }
+
+            getWeather()
+            {
+                return this.weather + "です。"
+            }
+            get city()
+            {
+                return this._city + "の今日の天気は" + this.getWeather();
+            }
+
+            set city(value)
+            {
+                this._city = value;
+            }
+
+            get country()
+            {
+                return this._country + "都市の" + this._city();
+            }
+
+            set country(value)
+            {
+                this._country = value
+            }
+
+            getCity()
+            {
+                return this.country
+            }
+
+
+        }
+
+
+
+        const member = {
+            name: "Mike",
+            birth: new Date(1998, 10, 15),
+            toBirthDay()
+            {
+                return this.name + "の誕生日は" + this.birth.toLocaleString();
+            }
+        }
+
+        console.log(member.toBirthDay());
+
+        let i = 0;
+
+        const memos = {
+            ["memo" + ++i]: "ABC",
+            ["memo" + ++i]: "DEF",
+            ["memo" + ++i]: "GIH"
+        };
+
+        console.log(memos);
+
+        var week = document.getElementsByClassName("week");
+        const dateArray = ["Mon", "Tue", "wed"];
+
+        for (let i of dateArray) {
+            console.log(i);
+        }
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

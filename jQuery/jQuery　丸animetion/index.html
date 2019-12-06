@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+
+
+</head>
+
+<body>
+    <div class="s10w">
+        <button>First</button>
+        <button>First</button>
+        <button>First</button>
+        <button style="color: rgb(255, 255, 255); background-color: rgb(52, 152, 219); border-width: 0px;">Second</button>
+        <button>Second</button>
+        <button style="color: rgb(255, 255, 255); background-color: rgb(52, 152, 219); border-width: 0px;">Second</button>
+        <button>Third<span><span>Third</span></span></button>
+        <button>Third<span><span>Third</span></span></button>
+        <button>Third<span><span>Third</span></span></button>
+    </div>
+    <script>
+        $(function() {
+            var duration = 300,
+                defaultBorderWidth = '0px',
+                changeBorderWidth = '12px',
+                changeColor = "#ae5e9b",
+                defaultColor = "#3498DB";
+            /* First */
+            $('.s10w button:nth-child(-n+3)').on({
+                'mouseover': function() {
+                    $(this).stop(true).animate({
+                        backgroundColor: changeColor
+                    }, duration);
+                },
+                'mouseout': function() {
+                    $(this).stop(true).animate({
+                        backgroundColor: defaultColor
+                    })
+                }
+            });
+            /* Second */
+            $(".s10w button:nth-child(n+4):nth-child(-n+6)").on({
+                'mouseover': function() {
+                    $(this).stop(true).animate({
+                        borderWidth: changeBorderWidth,
+                        color: changeColor,
+                        backgroundColor: 'white'
+                    }, duration)
+                },
+                'mouseout': function() {
+                    $(this).stop(true).animate({
+                        borderWidth: defaultBorderWidth,
+                        color: 'white',
+                        backgroundColor: defaultColor
+                    }, duration)
+                }
+            });
+            /* Third */
+            $(".s10w button:nth-child(n+7)").on({
+                'mouseover': function() {
+                    $(this).find('>span').stop(true).animate({
+                        width: "100px"
+                    })
+                },
+                'mouseout': function() {
+                    $(this).find('>span').stop(true).animate({
+                        width: "0"
+                    })
+                },
+            })
+
+            console.log("rectangle")
+
+            const x = 2
+            const y = 6
+            const z = 8
+
+
+
+            const rectangle = x * y
+            console.log(rectangle)
+
+            console.log("parallelogram")
+            const parallelogram = x * y
+            console.log(parallelogram)
+
+            console.log("triangle")
+            const triangle = x * y * 1 / 2
+            console.log(triangle)
+
+            console.log("trapezoid")
+            const trapezoid = (y + z) * x * 1 / 2
+            console.log(trapezoid)
+
+
+
+
+
+
+
+
+        });
+    </script>
+</body>
+
+</html>

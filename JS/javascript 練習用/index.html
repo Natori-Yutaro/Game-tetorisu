@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        $(function() {
+            var x = 30;
+            if (x < 20) {
+                console.log("true");
+            } else {
+                console.log("false");
+            }
+
+        });
+
+        var fortune = "大凶";
+        switch (fortune) {
+            case "大吉":
+                console.log("素晴らしい");
+                break;
+
+            case "中吉":
+                console.log("嬉しい");
+                break;
+
+            case "小吉":
+                console.log("まあまあ");
+                break;
+
+            case "大凶":
+                console.log("死にたい");
+                break;
+
+
+        }
+
+        for (let x = 0; x < 10; ++x) {
+            console.log("xは現在" + x + "である");
+        }
+
+        var local_specialty = {
+            青森: "リンゴ",
+            愛媛: "ミカン",
+            北海道: "メロン"
+        };
+
+        for (let key in local_specialty) {
+            console.log(key + "の名産は" + local_specialty[key] + "です！")
+        }
+
+
+
+        for (let x = 0; x < 500000; x++) {
+            console.log("xは現在" + x + "である");
+            if (x === 30) {
+                console.log("終わりです");
+                break;
+            } else {
+                console.log("続きます");
+            }
+        }
+
+        for (let y = 0; y < 20; y++) {
+            if (y % 3 === 0) {
+                console.log("3の倍数であるｙは現在" + y + "である");
+                continue;
+            }
+        }
+
+        for (let x = 0; x <= 2020; x++) {
+            if (x % 4 === 0) {
+                console.log(+x + "はうるう年です")
+                continue;
+            }
+        }
+
+        const random = Math.floor(Math.random() * 100);
+
+        if (random % 2 === 0) {
+            console.log("apple");
+        } else if (random => 50) {
+            console.log("grape");
+        } else if (random % 5 === 0 && random < 50) {
+            console.log("orange");
+        } else if (random % 5 === 0 && random >= 50) {
+            console.log("melon");
+        } else if (random % 3 === 0) {
+            console.log("peach");
+        } else {
+            console.log("vegetable")
+        }
+
+        var foods = ["fish", "vegetable", "meat"];
+        var fruits = ["apple", "lemon"];
+
+        const concatFoods = foods.concat(fruits);
+        console.log(concatFoods);
+
+        const joinFoods = foods.join(",");
+        console.log(joinFoods);
+
+        const sliceFoods = foods.slice(1, 2);
+        console.log(sliceFoods);
+
+        foods.splice(1, 0, "onion");
+        console.log(foods);
+
+        const drink = ["soda", "tea", "water"];
+        const popDrink = drink.pop()
+        console.log(popDrink);
+        console.log(drink);
+
+        const pushDrink = drink.push("appleJuice", "grapeJuice");
+        console.log(drink);
+
+        const shiftDrink = drink.shift();
+        console.log(shiftDrink);
+        console.log(drink);
+
+        const unshiftDrink = drink.unshift("cola", "milkTea");
+        console.log(drink);
+
+        const tens = [5, 6, 2, 8, 1, 3, 10, 9, 7, 4];
+        console.log(tens);
+
+        const reverseTens = tens.reverse();
+        console.log(tens);
+        console.log(tens.sort());
+
+        const sortTens = tens.sort((a, b) => {
+            if (a < b) {
+                return -1;
+            }
+            if (a > b) {
+                return 1;
+            }
+            return 0;
+        });
+
+        console.log(tens);
+
+        let evenNumber = []; //偶数
+        let oddNumber = []; //奇数
+
+        for (let x = 0; x <= 100; x++) {
+            if (x % 2 === 0) {
+                evenNumber.push(x);
+            } else {
+                oddNumber.push(x);
+            }
+        };
+
+        console.log(evenNumber);
+        console.log(oddNumber);
+    </script>
+
+</body>
+
+</html>

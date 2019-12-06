@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>HTML操作</title>
+</head>
+
+<body>
+    <h1>タイトル</h1>
+    <p id="text">テキスト１</p>
+
+    <input type="button" onclick="handleClick()" value="Click">
+
+
+    <p id="change-text" onmouseover="changeText()">変わってません</p>
+
+    <button id="count-up" onclick="countup()">1</button>
+    <a href="#" id="url">TOPへ</a>
+
+    <button id="date" ondblclick="date()">今月は何日まで？</button>
+
+    <p id="changecolor">色が変わるよ！！！！</p>
+
+    <button onclick="addTextNode('YES!');">YES!</button>
+    <button onclick="addTextNode('NO! ');">NO!</button>
+    <button onclick="addTextNode('WE CAN! ');">WE CAN!</button>
+
+    <hr />
+
+    <p id="p1">First line of paragraph</p>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <script>
+        console.log(document.getElementById("text"));
+        console.log(document.getElementsByTagName("h1"));
+
+        const handleClick = () =>
+        {
+            console.log("クリックされました");
+        }
+
+        let a = document.getElementById("url");
+
+        const url = a.href;
+        a.href = "#top";
+
+        const changeText = () =>
+        {
+            let newtext = document.getElementById("change-text")
+            newtext.textContent = "変わりました";
+        }
+
+        var x = 1
+
+        const countup = () =>
+        {
+            var button = document.getElementById("count-up");
+            button.textContent = ++x
+        }
+
+        const date = () =>
+        {
+            var date = document.getElementById("date");
+            var date1 = new Date();
+            var year = date1.getFullYear();
+            var month = date1.getMonth();
+            var lastday = new Date(year, month, 0).getDate();
+
+            console.log(lastday);
+
+            date.textContent = lastday;
+
+
+
+        };
+
+        var date1 = new Date();
+
+        // const changeColor = document.getElementById("changecolor");
+        // changeColor.addEventListener("mouseover", function (e)
+        // {
+        //     e.target.setAttribute("class", "red");
+        // })
+
+        // $("#changecolor").mouseover(function ()
+        // {
+        //     $(this).addClass("red");
+        // })
+
+        const red = document.getElementsByClassName("red");
+
+        // $(".red").mouseover(function ()
+        // {
+        //     $(this).removeClass("red");
+        //     $(this).addClass("yellow");
+        // });
+
+
+        class Tag
+        {
+            constructor(selector)
+            {
+                this.tag = document.querySelector(selector);
+                this.count = 0;
+            }
+
+            addMouseOverEvent()
+            {
+                this.tag.addEventListener("mouseover", (e) =>
+                {
+                    console.log(e.target);
+                    this.count++;
+
+                    console.log(this.count);
+
+                    switch (this.count % 4) {
+                        case 1:
+                            this.tag.setAttribute("class", "red");
+                            break;
+                        case 2:
+                            this.tag.setAttribute("class", "yellow");
+                            break;
+                        case 3:
+                            this.tag.setAttribute("class", "blue");
+                            break;
+                        case 0:
+                            this.tag.setAttribute("class", "green");
+                            break;
+                    }
+
+                });
+            }
+
+            switchcolor(e)
+            {
+
+            }
+
+        }
+
+        const changecolor = new Tag("#changecolor");
+        changecolor.addMouseOverEvent();
+
+        function addTextNode(text)
+        {
+            var newtext = document.createTextNode(text),
+                p1 = document.getElementById("p1");
+
+            p1.appendChild(newtext);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

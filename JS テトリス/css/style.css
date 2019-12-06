@@ -1,0 +1,23 @@
+body{
+background-color: #263238;
+}
+
+table{
+    margin: 0 auto;
+    width: 400px;
+    height: 800px;
+}
+
+td{
+    width: 10%;
+    height: 5%;
+}
+
+.default{
+    background-color: #455a64;
+}
+
+.stick{
+    background-color: #03A9F4;
+}
+

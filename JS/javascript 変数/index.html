@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="sample-kw">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        $(function() {
+            var $container = $(".sample-kw")
+            var $contents = $container.find(">div");
+            //1
+            var length = $contents.length;
+            //2
+            $container.css({
+                height: 10 * (length + 1)
+            });
+            //3
+            for (var i = 0; i < length; i++) {
+                //4
+                console.log(i)
+                $contents.eq(i).css({
+                    //5
+                    top: (i + 1) * 10,
+                    left: (i + 1) * 10
+                });
+            }
+
+
+
+        });
+    </script>
+</body>
+
+</html>

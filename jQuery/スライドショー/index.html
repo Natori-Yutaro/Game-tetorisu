@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Slideshow</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="slideshow-slides">
+            <!-- スライド1 -->
+            <a class="slide" id="slide-1">
+                <img id="holder" data-src="holder.js/1600x465?theme=sky&text=Sky" alt="walk">
+            </a>
+            <!-- スライド2 -->
+            <a class="slide" id="slide-2">
+                <img id="holder" data-src="holder.js/1600x465?theme=vine&text=Vine" alt="jellyfish">
+            </a>
+            <!-- スライド3 -->
+            <a class="slide" id="slide-3">
+                <img id="holder" data-src="holder.js/1600x465?theme=lava&text=Lava" alt="sea">
+            </a>
+            <!-- スライド4 -->
+            <a class="slide" id="slide-4">
+                <img id="holder" data-src="holder.js/1600x465?theme=social&text=Social" alt="moon">
+            </a>
+        </div>
+
+        <div class="slideshow-nav">
+            <a href="#" class="prev">
+
+
+                <i class="fa fa-chevron-left"></i>
+            </a>
+            <a href="#" class="next">
+
+                <i class="fa fa-chevron-right"></i>
+            </a>
+        </div>
+
+        <div class="slideshow-indicator"></div>
+    </div>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://code.jquery.com/color/jquery.color-2.1.2.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.6/holder.js"></script>
+    <script>
+        $(function() {
+
+
+            let $indicator = $('.slideshow-indicator'),
+                $container = $('.container'),
+                $slides = $container.find('.slide'),
+                $nav = $container.find(".slideshow-nav");
+
+
+            const slideCount = $slides.length;
+            const duration = 500;
+            const intervel = 7500;
+            let indicatorHTML = "";
+            let currentIndex = 0;
+            let timer;
+
+
+            console.log($slides.length)
+            $slides.each(function(i) {
+
+                $(this).css({
+                    left: `${100*i}%`
+                });
+                indicatorHTML += `<a href="#">${i+1}</a>`;
+            });
+
+            $indicator.html(indicatorHTML);
+
+            const $slideGroup = $container.find(".slideshow-slides");
+
+            const goToslide = index => {
+                $slideGroup.animate({
+                    left: -100 * index + "%"
+                }, duration);
+                currentIndex = index;
+                updateNav();
+            };
+
+            function updateNav() {
+                const $navPrev = $nav.find(".prev");
+                const $navNext = $nav.find(".next");
+                const $indicatorValues = $indicator.find("a");
+
+                if (currentIndex === 0) {
+                    $navPrev.addClass("disabled");
+                } else {
+                    $navPrev.removeClass("disabled");
+                }
+
+                if (currentIndex === 3) {
+                    $navNext.addClass("disabled");
+                } else {
+                    $navNext.removeClass("disabled");
+                };
+
+                $indicatorValues
+                    .removeClass("active")
+                    .eq(currentIndex)
+                    .addClass("active");
+            };
+
+            function startTimer() {
+                timer = setInterval(function() {
+                    let nextIndex = (currentIndex + 1) % slideCount;
+                    goToslide(nextIndex);
+                }, intervel);
+            }
+
+            function stopTimer() {
+                clearInterval(timer);
+            }
+            startTimer();
+
+            let enterContent = () => {
+                stopTimer();
+            };
+            let leaveContent = () => {
+                startTimer();
+            };
+
+            $container.on({
+                mouseenter: enterContent,
+                mouseleave: leaveContent
+            })
+
+            $nav.on("click", "a", function(event) {
+                event.preventDefault();
+                if ($(this).hasClass("prev")) {
+                    goToslide(currentIndex - 1);
+                } else {
+                    goToslide(currentIndex + 1);
+                }
+            });
+
+
+            $indicator.on("click", "a", function() {
+                event.preventDefault();
+                if (!$(this).hasClass("active")) {
+                    goToslide($(this).index());
+                }
+            });
+
+
+
+        })
+    </script>
+</body>
+
+</html>

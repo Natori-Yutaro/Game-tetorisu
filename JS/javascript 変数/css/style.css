@@ -1,0 +1,12 @@
+.sample-kw {
+    position: relative;
+}
+
+.sample-kw div {
+    position: absolute;
+    color: white;
+    background-color: aqua;
+    height: 10px;
+    width: 10px;
+    text-align: center;
+}
